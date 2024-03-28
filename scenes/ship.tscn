@@ -1,0 +1,231 @@
+[gd_scene load_steps=27 format=3 uid="uid://bru3hpq2olsg7"]
+
+[ext_resource type="Script" path="res://scripts/ship.gd" id="1_p6twi"]
+[ext_resource type="Texture2D" uid="uid://bq3pgkmoipu5n" path="res://sprites/ship/off_0.png" id="1_u15wo"]
+[ext_resource type="PackedScene" uid="uid://dcc7pm13yo0wd" path="res://scenes/bullet.tscn" id="2_anrbh"]
+[ext_resource type="Texture2D" uid="uid://tiulcy0jo4i1" path="res://sprites/ship/on_0.png" id="2_x88bj"]
+[ext_resource type="PackedScene" uid="uid://bgt7sl31baj8i" path="res://scenes/slingshot.tscn" id="3_37tqs"]
+[ext_resource type="Texture2D" uid="uid://dnyxghl7agm8" path="res://sprites/ship/on_1.png" id="3_gxdqq"]
+[ext_resource type="Texture2D" uid="uid://c52woruff7q0" path="res://sprites/ship/explode_0.png" id="4_0rtfm"]
+[ext_resource type="PackedScene" uid="uid://bu11hcwt4qdta" path="res://scenes/item.tscn" id="4_s5qcd"]
+[ext_resource type="Texture2D" uid="uid://dbcr6eq5q6uy3" path="res://sprites/ship/explode_1.png" id="5_jr4x4"]
+[ext_resource type="Texture2D" uid="uid://clb8l4cnybpks" path="res://sprites/ship/explode_2.png" id="6_mpg7o"]
+[ext_resource type="Texture2D" uid="uid://dh1i1djqywmcx" path="res://sprites/ship/on_2.png" id="9_cpvhv"]
+[ext_resource type="Texture2D" uid="uid://b3g7h40v0h8mh" path="res://sprites/shield/shield_bar/friendly_0.png" id="10_gqexe"]
+[ext_resource type="Texture2D" uid="uid://fi2ehjk1vfup" path="res://sprites/shield/shield_bar_container/friendly_0.png" id="11_r6013"]
+[ext_resource type="Texture2D" uid="uid://vdrryl05caq5" path="res://sprites/shield/shield_icon/friendly_0.png" id="12_oujvw"]
+[ext_resource type="Texture2D" uid="uid://b4tcjf505g1yh" path="res://particles/thrust.png" id="19_nne2i"]
+[ext_resource type="Texture2D" uid="uid://c82nibppwm3ih" path="res://particles/explode.png" id="20_kd1hx"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gs5j1"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.1
+scale_max = 0.25
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ro1hk"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+direction = Vector3(-1, 0, 0)
+spread = 60.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+tangential_accel_min = 100.0
+tangential_accel_max = 100.0
+damping_min = 10.0
+damping_max = 20.0
+scale_min = 0.25
+scale_max = 0.5
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u82c7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0rtfm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jr4x4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_mpg7o")
+}],
+"loop": true,
+"name": &"explode",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_u15wo")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x88bj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gxdqq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_cpvhv")
+}],
+"loop": true,
+"name": &"on",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k674k"]
+radius = 12.8
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ucfkv"]
+radius = 120.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0f5t7"]
+radius = 100.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wvc1k"]
+size = Vector2(576, 314)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w50uk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_r6013")
+}],
+"loop": true,
+"name": &"friendly",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ma6wp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_gqexe")
+}],
+"loop": true,
+"name": &"friendly",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hrnge"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_oujvw")
+}],
+"loop": true,
+"name": &"friendly",
+"speed": 5.0
+}]
+
+[node name="Ship" type="Area2D" groups=["ships"]]
+z_index = 1000
+scale = Vector2(5, 5)
+script = ExtResource("1_p6twi")
+bullet_scene = ExtResource("2_anrbh")
+slingshot_scene = ExtResource("3_37tqs")
+item_scene = ExtResource("4_s5qcd")
+
+[node name="ExplosionParticleEmitter" type="GPUParticles2D" parent="."]
+texture_filter = 3
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_gs5j1")
+texture = ExtResource("20_kd1hx")
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+
+[node name="ThrustParticleEmitter" type="GPUParticles2D" parent="."]
+texture_filter = 3
+texture_repeat = 1
+position = Vector2(-5, 0)
+emitting = false
+amount = 250
+process_material = SubResource("ParticleProcessMaterial_ro1hk")
+texture = ExtResource("19_nne2i")
+lifetime = 0.5
+randomness = 1.0
+fixed_fps = 60
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_repeat = 1
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_u82c7")
+animation = &"off"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_k674k")
+
+[node name="ShipCamera" type="Camera2D" parent="."]
+zoom = Vector2(0.5, 0.5)
+process_callback = 0
+limit_smoothed = true
+position_smoothing_enabled = true
+rotation_smoothing_enabled = true
+
+[node name="SlingshotArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SlingshotArea"]
+shape = SubResource("CircleShape2D_ucfkv")
+
+[node name="ItemPickupArea" type="Area2D" parent="." groups=["item_pickups"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ItemPickupArea"]
+shape = SubResource("CircleShape2D_0f5t7")
+
+[node name="RenderArea" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RenderArea"]
+shape = SubResource("RectangleShape2D_wvc1k")
+
+[node name="Shield" type="Node2D" parent="."]
+rotation = 0.0039499
+
+[node name="ShieldBarContainer" type="AnimatedSprite2D" parent="Shield"]
+texture_filter = 3
+texture_repeat = 1
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_w50uk")
+animation = &"friendly"
+centered = false
+offset = Vector2(0, 200)
+
+[node name="ShieldBar" type="AnimatedSprite2D" parent="Shield"]
+texture_filter = 3
+texture_repeat = 1
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_ma6wp")
+animation = &"friendly"
+centered = false
+offset = Vector2(0, 200)
+
+[node name="ShieldIcon" type="AnimatedSprite2D" parent="Shield"]
+texture_filter = 3
+texture_repeat = 1
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_hrnge")
+animation = &"friendly"
+centered = false
+offset = Vector2(-160, 340)
+
+[connection signal="area_entered" from="SlingshotArea" to="." method="_on_slingshot_area_area_entered"]
+[connection signal="area_exited" from="SlingshotArea" to="." method="_on_slingshot_area_area_exited"]
+[connection signal="area_entered" from="RenderArea" to="." method="_on_render_area_area_entered"]
+[connection signal="area_exited" from="RenderArea" to="." method="_on_render_area_area_exited"]

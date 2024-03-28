@@ -1,0 +1,103 @@
+[gd_scene load_steps=14 format=3 uid="uid://bw20jhfk7sxa8"]
+
+[ext_resource type="Script" path="res://scripts/asteroid.gd" id="1_tjayj"]
+[ext_resource type="PackedScene" uid="uid://bu11hcwt4qdta" path="res://scenes/item.tscn" id="2_ohvil"]
+[ext_resource type="Texture2D" uid="uid://cerajbxbio1wv" path="res://sprites/asteroid/0_0.png" id="2_qvv6a"]
+[ext_resource type="Texture2D" uid="uid://4t216jtgte4s" path="res://sprites/asteroid/explode_0.png" id="3_1eq30"]
+[ext_resource type="Texture2D" uid="uid://c017nk0b6clo4" path="res://sprites/asteroid/25_0.png" id="3_4t6ed"]
+[ext_resource type="Texture2D" uid="uid://b2lypr4nwo2ej" path="res://sprites/asteroid/50_0.png" id="4_7brk2"]
+[ext_resource type="Texture2D" uid="uid://blx55binhv6vl" path="res://sprites/asteroid/explode_1.png" id="4_ob4ws"]
+[ext_resource type="Texture2D" uid="uid://cqflx0purby4t" path="res://sprites/asteroid/75_0.png" id="5_8neyu"]
+[ext_resource type="Texture2D" uid="uid://c82nibppwm3ih" path="res://particles/explode.png" id="8_15483"]
+[ext_resource type="Texture2D" uid="uid://5n3e1enoqkuj" path="res://sprites/asteroid/explode_2.png" id="9_ur4hh"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hhayk"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 400.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.1
+scale_max = 0.25
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_shnes"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qvv6a")
+}],
+"loop": true,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4t6ed")
+}],
+"loop": true,
+"name": &"25",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_7brk2")
+}],
+"loop": true,
+"name": &"50",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_8neyu")
+}],
+"loop": true,
+"name": &"75",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1eq30")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ob4ws")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ur4hh")
+}],
+"loop": true,
+"name": &"explode",
+"speed": 15.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_478cl"]
+radius = 64.0
+
+[node name="Asteroid" type="Area2D" groups=["asteroids"]]
+scale = Vector2(1.25, 1.25)
+script = ExtResource("1_tjayj")
+item_scene = ExtResource("2_ohvil")
+
+[node name="ExplosionParticleEmitter" type="GPUParticles2D" parent="."]
+texture_filter = 3
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_hhayk")
+texture = ExtResource("8_15483")
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_repeat = 1
+sprite_frames = SubResource("SpriteFrames_shnes")
+animation = &"75"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_478cl")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

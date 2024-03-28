@@ -1,0 +1,234 @@
+[gd_scene load_steps=28 format=3 uid="uid://bu11hcwt4qdta"]
+
+[ext_resource type="Script" path="res://scripts/item.gd" id="1_hkfjt"]
+[ext_resource type="Texture2D" uid="uid://dsy6n8jegiulx" path="res://sprites/items/inventory/junk/junk_0.png" id="2_krdwm"]
+[ext_resource type="Texture2D" uid="uid://csnv4g3wrwag0" path="res://sprites/items/inventory/aluminum/aluminum_0.png" id="2_s45es"]
+[ext_resource type="Texture2D" uid="uid://biekpwreghh66" path="res://sprites/items/weapons/attack_module/attack_module_0.png" id="3_acwdr"]
+[ext_resource type="Texture2D" uid="uid://loxt6pfmyamy" path="res://sprites/items/weapons/defence_module/defence_module_0.png" id="4_o8lk4"]
+[ext_resource type="Texture2D" uid="uid://c60lw7083j15s" path="res://sprites/items/weapons/emp/emp_0.png" id="5_c4blj"]
+[ext_resource type="Texture2D" uid="uid://dq1whitpw0hy6" path="res://sprites/items/weapons/generator_module/generator_module_0.png" id="6_w05rn"]
+[ext_resource type="Texture2D" uid="uid://6oeqaq5cy5f5" path="res://sprites/items/weapons/generator_module/generator_module_1.png" id="7_q1tev"]
+[ext_resource type="Texture2D" uid="uid://chnye0tyxvb0k" path="res://sprites/items/inventory/iron/iron_0.png" id="8_gy2tp"]
+[ext_resource type="Texture2D" uid="uid://cbocwjifs0sqb" path="res://sprites/items/weapons/healing_module/healing_module_0.png" id="8_s7lq8"]
+[ext_resource type="Texture2D" uid="uid://bjyp1h7l5gfgc" path="res://sprites/items/inventory/lead/lead_0.png" id="10_ns6a0"]
+[ext_resource type="Texture2D" uid="uid://bortioc122qfi" path="res://sprites/items/inventory/methane/methane_0.png" id="11_aktef"]
+[ext_resource type="Texture2D" uid="uid://8bxv7co2h7g1" path="res://sprites/items/weapons/large_bomb/large_bomb_0.png" id="11_op8s2"]
+[ext_resource type="Texture2D" uid="uid://1gqfvxq31y47" path="res://sprites/items/weapons/large_mine/large_mine_0.png" id="12_bi422"]
+[ext_resource type="Texture2D" uid="uid://cqj50pd8f8g55" path="res://sprites/items/inventory/nitrogen/nitrogen_0.png" id="12_cyimi"]
+[ext_resource type="Texture2D" uid="uid://du2q5qyve8koh" path="res://sprites/items/inventory/plutonium/plutonium_0.png" id="13_56m8o"]
+[ext_resource type="Texture2D" uid="uid://b6tekuplt7prl" path="res://sprites/items/inventory/quartz/quartz_0.png" id="14_tmbi4"]
+[ext_resource type="Texture2D" uid="uid://ceygdhus8q5vc" path="res://sprites/items/weapons/missile/missile_0.png" id="15_c1qfa"]
+[ext_resource type="Texture2D" uid="uid://bgyu1hxjxwh21" path="res://sprites/items/inventory/silicon/silicon_0.png" id="15_w8siw"]
+[ext_resource type="Texture2D" uid="uid://vfygetuqujo8" path="res://sprites/items/inventory/titanium/titanium_0.png" id="16_glhwc"]
+[ext_resource type="Texture2D" uid="uid://cj5jfxkfgldya" path="res://sprites/items/weapons/plasma_bomb/plasma_bomb_0.png" id="17_ddabl"]
+[ext_resource type="Texture2D" uid="uid://cfc74xvqxtugn" path="res://sprites/items/weapons/rocket/rocket_0.png" id="20_avw7c"]
+[ext_resource type="Texture2D" uid="uid://c4ttntcp4464p" path="res://sprites/items/weapons/small_bomb/small_bomb.png" id="22_tohyq"]
+[ext_resource type="Texture2D" uid="uid://d0f81qwkkgs27" path="res://sprites/items/weapons/small_mine/small_mine_0.png" id="23_74pa1"]
+[ext_resource type="Texture2D" uid="uid://bu54qedqftj3n" path="res://sprites/items/weapons/torpedo/torpedo_0.png" id="25_et6l4"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l8y7e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s45es")
+}],
+"loop": true,
+"name": &"aluminum",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_acwdr")
+}],
+"loop": true,
+"name": &"attack_module",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_o8lk4")
+}],
+"loop": true,
+"name": &"defence_module",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_c4blj")
+}],
+"loop": true,
+"name": &"emp",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_w05rn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_q1tev")
+}],
+"loop": true,
+"name": &"generator_module",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_s7lq8")
+}],
+"loop": true,
+"name": &"healing_module",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_gy2tp")
+}],
+"loop": true,
+"name": &"iron",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_krdwm")
+}],
+"loop": true,
+"name": &"junk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_op8s2")
+}],
+"loop": true,
+"name": &"large_bomb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_bi422")
+}],
+"loop": true,
+"name": &"large_mine",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_ns6a0")
+}],
+"loop": true,
+"name": &"lead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_aktef")
+}],
+"loop": true,
+"name": &"methane",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_c1qfa")
+}],
+"loop": true,
+"name": &"missile",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_cyimi")
+}],
+"loop": true,
+"name": &"nitrogen",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_ddabl")
+}],
+"loop": true,
+"name": &"plasma_bomb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_56m8o")
+}],
+"loop": true,
+"name": &"plutonium",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_tmbi4")
+}],
+"loop": true,
+"name": &"quartz",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_avw7c")
+}],
+"loop": true,
+"name": &"rocket",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_w8siw")
+}],
+"loop": true,
+"name": &"silicon",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_tohyq")
+}],
+"loop": true,
+"name": &"small_bomb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_74pa1")
+}],
+"loop": true,
+"name": &"small_mine",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_glhwc")
+}],
+"loop": true,
+"name": &"titanium",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_et6l4")
+}],
+"loop": true,
+"name": &"torpedo",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyyak"]
+size = Vector2(6, 6)
+
+[node name="item" type="Area2D" groups=["items"]]
+scale = Vector2(5, 5)
+script = ExtResource("1_hkfjt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_repeat = 1
+sprite_frames = SubResource("SpriteFrames_l8y7e")
+animation = &"torpedo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_eyyak")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

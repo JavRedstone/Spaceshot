@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bgt7sl31baj8i"]
+
+[ext_resource type="Texture2D" uid="uid://kqnqy88toago" path="res://sprites/slingshot/slingshot_link/slingshot_link.png" id="1_0jtiu"]
+[ext_resource type="Script" path="res://scripts/slingshot.gd" id="1_vhool"]
+[ext_resource type="Texture2D" uid="uid://n7wbg6bbqahu" path="res://sprites/slingshot/slingshot_grabber/attached_0.png" id="2_85ono"]
+[ext_resource type="Texture2D" uid="uid://dtn7ygtjmmynd" path="res://sprites/slingshot/slingshot_grabber/slingshot_grabber_0.png" id="3_qrsmv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mpma5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_85ono")
+}],
+"loop": true,
+"name": &"attached",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qrsmv")
+}],
+"loop": true,
+"name": &"slingshot_grabber",
+"speed": 5.0
+}]
+
+[node name="Slingshot" type="Node2D"]
+script = ExtResource("1_vhool")
+
+[node name="SlingshotGrabber" type="AnimatedSprite2D" parent="."]
+texture_repeat = 1
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_mpma5")
+animation = &"slingshot_grabber"
+
+[node name="SlingshotLink" type="Sprite2D" parent="."]
+texture_repeat = 2
+scale = Vector2(0.025, 0.025)
+texture = ExtResource("1_0jtiu")
+centered = false
+offset = Vector2(0, -64)
+region_enabled = true
+region_rect = Rect2(0, 0, 128, 128)

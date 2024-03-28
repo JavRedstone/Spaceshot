@@ -1,0 +1,90 @@
+[gd_scene load_steps=13 format=3 uid="uid://grea0oe1dt6v"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_2f5f8"]
+[ext_resource type="PackedScene" uid="uid://bru3hpq2olsg7" path="res://scenes/ship.tscn" id="2_ama2g"]
+[ext_resource type="PackedScene" uid="uid://bw20jhfk7sxa8" path="res://scenes/asteroid.tscn" id="3_go1or"]
+[ext_resource type="PackedScene" uid="uid://bbenb8q31hfgg" path="res://scenes/ui.tscn" id="4_doghd"]
+[ext_resource type="PackedScene" uid="uid://dv08vy1pvb5yv" path="res://scenes/alien.tscn" id="4_mrdxe"]
+[ext_resource type="Texture2D" uid="uid://bquoqcj622ry6" path="res://background/game_border.png" id="6_7lhug"]
+[ext_resource type="Texture2D" uid="uid://b2vtkjj83su7l" path="res://background/game_background_static.png" id="6_7rhb3"]
+[ext_resource type="Texture2D" uid="uid://bwr2kspj6jgm5" path="res://background/game_background_0.png" id="7_li66f"]
+[ext_resource type="Texture2D" uid="uid://dqgisribvdsjk" path="res://background/game_background_1.png" id="8_6wvv0"]
+[ext_resource type="Texture2D" uid="uid://dmovqp721lw2c" path="res://background/game_background_2.png" id="9_h21ip"]
+[ext_resource type="Texture2D" uid="uid://c0cd2gn2fnlbn" path="res://background/game_background_3.png" id="10_pe643"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qfmvd"]
+size = Vector2(500000, 500000)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_2f5f8")
+ship_scene = ExtResource("2_ama2g")
+asteroid_scene = ExtResource("3_go1or")
+alien_scene = ExtResource("4_mrdxe")
+ui_scene = ExtResource("4_doghd")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2(2.25, 2.25)
+transform = Transform2D(2.25, 0, 0, 2.25, 0, 0)
+
+[node name="Static" type="TextureRect" parent="ParallaxBackground"]
+texture_filter = 3
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_7rhb3")
+
+[node name="StarsLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.01, 0.01)
+motion_mirroring = Vector2(1024, 1024)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/StarsLayer"]
+texture_filter = 3
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_li66f")
+
+[node name="NebulaLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.05, 0.05)
+motion_mirroring = Vector2(1024, 1024)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/NebulaLayer"]
+texture_filter = 3
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("8_6wvv0")
+
+[node name="DustLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.15, 0.15)
+motion_mirroring = Vector2(1024, 1024)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/DustLayer"]
+texture_filter = 3
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("9_h21ip")
+
+[node name="PlanetLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(1024, 1024)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/PlanetLayer"]
+texture_filter = 3
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("10_pe643")
+
+[node name="GameBorderImg" type="TextureRect" parent="."]
+texture_filter = 3
+texture_repeat = 1
+offset_left = -250000.0
+offset_top = -250000.0
+offset_right = 250000.0
+offset_bottom = 250000.0
+texture = ExtResource("6_7lhug")
+
+[node name="GameBorder" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameBorder"]
+shape = SubResource("RectangleShape2D_qfmvd")
+
+[connection signal="area_entered" from="GameBorder" to="." method="_on_game_border_area_entered"]
+[connection signal="area_exited" from="GameBorder" to="." method="_on_game_border_area_exited"]

@@ -1,0 +1,1026 @@
+[gd_scene load_steps=36 format=3 uid="uid://bbenb8q31hfgg"]
+
+[ext_resource type="Texture2D" uid="uid://byo8xfhpwgw5i" path="res://ui/logo.png" id="1_a6t4i"]
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_g88lj"]
+[ext_resource type="Texture2D" uid="uid://bm7o7f5q0iajy" path="res://ui/home_background.png" id="2_mikas"]
+[ext_resource type="Texture2D" uid="uid://dabke2fk6xnqo" path="res://ui/loading_background.png" id="3_ulecr"]
+[ext_resource type="Texture2D" uid="uid://ku6xwh2sweks" path="res://ui/quitting_background.png" id="4_mpjc5"]
+[ext_resource type="Texture2D" uid="uid://dd8qjc1t3ia1b" path="res://ui/ship/shield/shield_bar_container.png" id="4_te6x1"]
+[ext_resource type="Texture2D" uid="uid://byn0ceo8snqpj" path="res://ui/ship/shield/shield_bar.png" id="5_3a6id"]
+[ext_resource type="Texture2D" uid="uid://b6xf0sfymjtcv" path="res://ui/ship/shield/shield_icon.png" id="6_w1kb2"]
+[ext_resource type="Texture2D" uid="uid://btikovbua3vww" path="res://ui/ship/energy/energy_bar_container.png" id="9_5ljw1"]
+[ext_resource type="Texture2D" uid="uid://besdwhi4tuom2" path="res://ui/ship/energy/energy_bar.png" id="10_wnwem"]
+[ext_resource type="Texture2D" uid="uid://bggpt4uxdf0wt" path="res://ui/ship/energy/energy_icon.png" id="11_n3kc8"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_pe5vw"]
+device = -1
+keycode = 85
+unicode = 117
+
+[sub_resource type="Shortcut" id="Shortcut_fh5o2"]
+events = [SubResource("InputEventKey_pe5vw")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_fl5bh"]
+device = -1
+keycode = 69
+unicode = 101
+
+[sub_resource type="Shortcut" id="Shortcut_pwhwd"]
+events = [SubResource("InputEventKey_fl5bh")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_76p2b"]
+device = -1
+keycode = 49
+unicode = 49
+
+[sub_resource type="Shortcut" id="Shortcut_i57u6"]
+events = [SubResource("InputEventKey_76p2b")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_u5b1y"]
+device = -1
+keycode = 50
+unicode = 50
+
+[sub_resource type="Shortcut" id="Shortcut_bnm4k"]
+events = [SubResource("InputEventKey_u5b1y")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_ixy3s"]
+device = -1
+keycode = 51
+unicode = 51
+
+[sub_resource type="Shortcut" id="Shortcut_ki0sn"]
+events = [SubResource("InputEventKey_ixy3s")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_f8ihy"]
+device = -1
+keycode = 52
+unicode = 52
+
+[sub_resource type="Shortcut" id="Shortcut_mwu61"]
+events = [SubResource("InputEventKey_f8ihy")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_5p3ge"]
+device = -1
+keycode = 53
+unicode = 53
+
+[sub_resource type="Shortcut" id="Shortcut_fr66g"]
+events = [SubResource("InputEventKey_5p3ge")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_xgcl8"]
+device = -1
+keycode = 54
+unicode = 54
+
+[sub_resource type="Shortcut" id="Shortcut_6ppni"]
+events = [SubResource("InputEventKey_xgcl8")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_48hpr"]
+device = -1
+keycode = 55
+unicode = 55
+
+[sub_resource type="Shortcut" id="Shortcut_h2uk3"]
+events = [SubResource("InputEventKey_48hpr")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_s4xjs"]
+device = -1
+keycode = 56
+unicode = 56
+
+[sub_resource type="Shortcut" id="Shortcut_wqysu"]
+events = [SubResource("InputEventKey_s4xjs")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_wo4ht"]
+device = -1
+keycode = 57
+unicode = 57
+
+[sub_resource type="Shortcut" id="Shortcut_md62l"]
+events = [SubResource("InputEventKey_wo4ht")]
+
+[sub_resource type="InputEventKey" id="InputEventKey_v7b7q"]
+device = -1
+keycode = 48
+unicode = 48
+
+[sub_resource type="Shortcut" id="Shortcut_8xqh4"]
+events = [SubResource("InputEventKey_v7b7q")]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g88lj")
+
+[node name="HomePage" type="CanvasLayer" parent="."]
+
+[node name="HomeBackground" type="TextureRect" parent="HomePage"]
+texture_filter = 3
+texture_repeat = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1024.0
+offset_top = -1024.0
+offset_right = 1024.0
+offset_bottom = 1024.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mikas")
+
+[node name="SingleplayerButton" type="Button" parent="HomePage"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.6
+anchor_right = 0.5
+anchor_bottom = 0.6
+offset_left = -325.0
+offset_top = -25.0
+offset_right = 325.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Singleplayer"
+
+[node name="MultiplayerButton" type="Button" parent="HomePage"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.7
+anchor_right = 0.5
+anchor_bottom = 0.7
+offset_left = -325.0
+offset_top = -25.0
+offset_right = 325.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "Multiplayer [Indev]"
+
+[node name="Logo" type="TextureRect" parent="HomePage"]
+texture_repeat = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.295
+anchor_right = 0.5
+anchor_bottom = 0.295
+offset_left = -576.0
+offset_top = -10.16
+offset_right = 865.0
+offset_bottom = 96.84
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_a6t4i")
+expand_mode = 2
+stretch_mode = 3
+
+[node name="DeathScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="RespawnButton" type="Button" parent="DeathScreen"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.6
+anchor_right = 0.5
+anchor_bottom = 0.6
+offset_left = -325.0
+offset_top = -25.0
+offset_right = 325.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Respawn"
+
+[node name="QuitButton" type="Button" parent="DeathScreen"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.7
+anchor_right = 0.5
+anchor_bottom = 0.7
+offset_left = -325.0
+offset_top = -20.0
+offset_right = 325.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "Quit
+"
+
+[node name="TextBackground" type="Panel" parent="DeathScreen"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.3
+anchor_right = 0.5
+anchor_bottom = 0.3
+offset_left = -359.5
+offset_top = -93.5
+offset_right = 360.5
+offset_bottom = 96.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="YouDied" type="Label" parent="DeathScreen"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.3
+anchor_right = 0.5
+anchor_bottom = 0.3
+offset_left = -235.5
+offset_top = -70.0
+offset_right = 235.5
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0.309804, 1)
+theme_override_colors/font_shadow_color = Color(0.662745, 0, 0.309804, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_font_sizes/font_size = 100
+text = "YOU DIED"
+
+[node name="Loading" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="LoadingBackground" type="TextureRect" parent="Loading"]
+texture_filter = 3
+texture_repeat = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1024.0
+offset_top = -1024.0
+offset_right = 1024.0
+offset_bottom = 1024.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ulecr")
+
+[node name="TextBackground" type="Panel" parent="Loading"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -359.5
+offset_top = -93.5
+offset_right = 360.5
+offset_bottom = 96.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LoadingWorld" type="Label" parent="Loading"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.5
+offset_top = -36.0
+offset_right = 210.5
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.827451, 0.839216, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.45098, 0.458824, 1, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_font_sizes/font_size = 50
+text = "LOADING WORLD..."
+
+[node name="Quitting" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="QuittingBackground" type="TextureRect" parent="Quitting"]
+texture_filter = 3
+texture_repeat = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1024.0
+offset_top = -1024.0
+offset_right = 1024.0
+offset_bottom = 1024.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_mpjc5")
+
+[node name="TextBackground" type="Panel" parent="Quitting"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -359.5
+offset_top = -93.5
+offset_right = 360.5
+offset_bottom = 96.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="QuittingWorld" type="Label" parent="Quitting"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.5
+offset_top = -36.0
+offset_right = 210.5
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.788235, 0.835294, 1)
+theme_override_colors/font_shadow_color = Color(0.988235, 0, 0.4, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_font_sizes/font_size = 50
+text = "QUITTING WORLD..."
+
+[node name="ShipHUD" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Shield" type="Control" parent="ShipHUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShieldBar" type="TextureProgressBar" parent="ShipHUD/Shield"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.085
+anchor_top = 0.15
+anchor_right = 0.085
+anchor_bottom = 0.15
+offset_right = 50.0
+offset_bottom = 5.0
+scale = Vector2(2, 2)
+texture_under = ExtResource("4_te6x1")
+texture_progress = ExtResource("5_3a6id")
+
+[node name="ShieldLogo" type="TextureRect" parent="ShipHUD/Shield"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.14
+anchor_right = 0.04
+anchor_bottom = 0.14
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("6_w1kb2")
+
+[node name="Energy" type="Control" parent="ShipHUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EnergyBar" type="TextureProgressBar" parent="ShipHUD/Energy"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.085
+anchor_top = 0.15
+anchor_right = 0.085
+anchor_bottom = 0.15
+offset_right = 50.0
+offset_bottom = 5.0
+scale = Vector2(2, 2)
+texture_under = ExtResource("9_5ljw1")
+texture_progress = ExtResource("10_wnwem")
+
+[node name="EnergyLogo" type="TextureRect" parent="ShipHUD/Energy"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.14
+anchor_right = 0.04
+anchor_bottom = 0.14
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("11_n3kc8")
+
+[node name="Upgrades" type="Button" parent="ShipHUD"]
+anchors_preset = -1
+anchor_left = 0.039
+anchor_top = 0.278
+anchor_right = 0.039
+anchor_bottom = 0.278
+offset_left = 0.0719986
+offset_top = -0.144012
+offset_right = 164.072
+offset_bottom = 30.856
+shortcut = SubResource("Shortcut_fh5o2")
+text = "Upgrades [U]"
+
+[node name="InventoryWeapons" type="Button" parent="ShipHUD"]
+anchors_preset = -1
+anchor_left = 0.039
+anchor_top = 0.278
+anchor_right = 0.039
+anchor_bottom = 0.278
+offset_left = 0.0719986
+offset_top = 39.856
+offset_right = 164.072
+offset_bottom = 70.856
+shortcut = SubResource("Shortcut_pwhwd")
+text = "Inventory [E]
+"
+
+[node name="ShipUpgrades" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ShieldCapUpgrade" type="Panel" parent="ShipUpgrades"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -476.0
+offset_top = -224.0
+offset_right = -326.0
+offset_bottom = -74.0
+
+[node name="Description" type="Label" parent="ShipUpgrades/ShieldCapUpgrade"]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 150.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 20
+text = "Shield Cap
+25 Silicon"
+horizontal_alignment = 1
+
+[node name="UpgradeAmount" type="ProgressBar" parent="ShipUpgrades/ShieldCapUpgrade"]
+layout_mode = 0
+offset_top = 75.0
+offset_right = 150.0
+offset_bottom = 110.0
+
+[node name="UpgradeShieldCap" type="Button" parent="ShipUpgrades/ShieldCapUpgrade"]
+layout_mode = 0
+offset_top = 110.0
+offset_right = 150.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.45098, 0.458824, 1, 1)
+shortcut = SubResource("Shortcut_i57u6")
+text = "Upgrade [1]"
+
+[node name="ShieldRegUpgrade" type="Panel" parent="ShipUpgrades"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = -224.0
+offset_right = -126.0
+offset_bottom = -74.0
+
+[node name="Description" type="Label" parent="ShipUpgrades/ShieldRegUpgrade"]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 150.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 20
+text = "Shield Regen
+5 Titanium"
+horizontal_alignment = 1
+
+[node name="UpgradeAmount" type="ProgressBar" parent="ShipUpgrades/ShieldRegUpgrade"]
+layout_mode = 0
+offset_top = 75.0
+offset_right = 150.0
+offset_bottom = 110.0
+
+[node name="UpgradeShieldReg" type="Button" parent="ShipUpgrades/ShieldRegUpgrade"]
+layout_mode = 0
+offset_top = 110.0
+offset_right = 150.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.45098, 0.458824, 1, 1)
+shortcut = SubResource("Shortcut_bnm4k")
+text = "Upgrade [2]"
+
+[node name="BulletCapUpgrade" type="Panel" parent="ShipUpgrades"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -224.0
+offset_right = 74.0
+offset_bottom = -74.0
+
+[node name="Description" type="Label" parent="ShipUpgrades/BulletCapUpgrade"]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 150.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 20
+text = "Bullet Cap
+10 Aluminum"
+horizontal_alignment = 1
+
+[node name="UpgradeAmount" type="ProgressBar" parent="ShipUpgrades/BulletCapUpgrade"]
+layout_mode = 0
+offset_top = 75.0
+offset_right = 150.0
+offset_bottom = 110.0
+
+[node name="UpgradeBulletCap" type="Button" parent="ShipUpgrades/BulletCapUpgrade"]
+layout_mode = 0
+offset_top = 110.0
+offset_right = 150.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.45098, 0.458824, 1, 1)
+shortcut = SubResource("Shortcut_ki0sn")
+text = "Upgrade [3]"
+
+[node name="BulletRegUpgrade" type="Panel" parent="ShipUpgrades"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 124.0
+offset_top = -224.0
+offset_right = 274.0
+offset_bottom = -74.0
+
+[node name="Description" type="Label" parent="ShipUpgrades/BulletRegUpgrade"]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 150.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 20
+text = "Bullet Regen
+10 Plutonium"
+horizontal_alignment = 1
+
+[node name="UpgradeAmount" type="ProgressBar" parent="ShipUpgrades/BulletRegUpgrade"]
+layout_mode = 0
+offset_top = 75.0
+offset_right = 150.0
+offset_bottom = 110.0
+
+[node name="UpgradeBulletReg" type="Button" parent="ShipUpgrades/BulletRegUpgrade"]
+layout_mode = 0
+offset_top = 110.0
+offset_right = 150.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.45098, 0.458824, 1, 1)
+shortcut = SubResource("Shortcut_mwu61")
+text = "Upgrade [4]"
+
+[node name="BulletDmgUpgrade" type="Panel" parent="ShipUpgrades"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 324.0
+offset_top = -224.0
+offset_right = 474.0
+offset_bottom = -74.0
+
+[node name="Description" type="Label" parent="ShipUpgrades/BulletDmgUpgrade"]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 150.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 20
+text = "Bullet Damage
+10 Lead"
+horizontal_alignment = 1
+
+[node name="UpgradeAmount" type="ProgressBar" parent="ShipUpgrades/BulletDmgUpgrade"]
+layout_mode = 0
+offset_top = 75.0
+offset_right = 150.0
+offset_bottom = 110.0
+
+[node name="UpgradeBulletDmg" type="Button" parent="ShipUpgrades/BulletDmgUpgrade"]
+layout_mode = 0
+offset_top = 110.0
+offset_right = 150.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.45098, 0.458824, 1, 1)
+shortcut = SubResource("Shortcut_fr66g")
+text = "Upgrade [5]"
+
+[node name="BulletSpeedUpgrade" type="Panel" parent="ShipUpgrades"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -476.0
+offset_top = 76.0
+offset_right = -326.0
+offset_bottom = 226.0
+
+[node name="Description" type="Label" parent="ShipUpgrades/BulletSpeedUpgrade"]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 150.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 20
+text = "Bullet Speed
+10 Methane"
+horizontal_alignment = 1
+
+[node name="UpgradeAmount" type="ProgressBar" parent="ShipUpgrades/BulletSpeedUpgrade"]
+layout_mode = 0
+offset_top = 75.0
+offset_right = 150.0
+offset_bottom = 110.0
+
+[node name="UpgradeBulletSpeed" type="Button" parent="ShipUpgrades/BulletSpeedUpgrade"]
+layout_mode = 0
+offset_top = 110.0
+offset_right = 150.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.45098, 0.458824, 1, 1)
+shortcut = SubResource("Shortcut_6ppni")
+text = "Upgrade [6]"
+
+[node name="ShipSpeedUpgrade" type="Panel" parent="ShipUpgrades"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = 76.0
+offset_right = -126.0
+offset_bottom = 226.0
+
+[node name="Description" type="Label" parent="ShipUpgrades/ShipSpeedUpgrade"]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 150.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 20
+text = "Ship Speed
+50 Methane"
+horizontal_alignment = 1
+
+[node name="UpgradeAmount" type="ProgressBar" parent="ShipUpgrades/ShipSpeedUpgrade"]
+layout_mode = 0
+offset_top = 75.0
+offset_right = 150.0
+offset_bottom = 110.0
+
+[node name="UpgradeShipSpeed" type="Button" parent="ShipUpgrades/ShipSpeedUpgrade"]
+layout_mode = 0
+offset_top = 110.0
+offset_right = 150.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.45098, 0.458824, 1, 1)
+shortcut = SubResource("Shortcut_h2uk3")
+text = "Upgrade [7]"
+
+[node name="ShipAgilityUpgrade" type="Panel" parent="ShipUpgrades"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = 76.0
+offset_right = 74.0
+offset_bottom = 226.0
+
+[node name="Description" type="Label" parent="ShipUpgrades/ShipAgilityUpgrade"]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 150.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 20
+text = "Ship Agility
+50 Nitrogen"
+horizontal_alignment = 1
+
+[node name="UpgradeAmount" type="ProgressBar" parent="ShipUpgrades/ShipAgilityUpgrade"]
+layout_mode = 0
+offset_top = 75.0
+offset_right = 150.0
+offset_bottom = 110.0
+
+[node name="UpgradeShipAgility" type="Button" parent="ShipUpgrades/ShipAgilityUpgrade"]
+layout_mode = 0
+offset_top = 110.0
+offset_right = 150.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.45098, 0.458824, 1, 1)
+shortcut = SubResource("Shortcut_wqysu")
+text = "Upgrade [8]"
+
+[node name="ShipFOVUpgrade" type="Panel" parent="ShipUpgrades"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 124.0
+offset_top = 76.0
+offset_right = 274.0
+offset_bottom = 226.0
+
+[node name="Description" type="Label" parent="ShipUpgrades/ShipFOVUpgrade"]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 150.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 20
+text = "Ship FOV
+25 Quartz"
+horizontal_alignment = 1
+
+[node name="UpgradeAmount" type="ProgressBar" parent="ShipUpgrades/ShipFOVUpgrade"]
+layout_mode = 0
+offset_top = 75.0
+offset_right = 150.0
+offset_bottom = 110.0
+
+[node name="UpgradeShipFOV" type="Button" parent="ShipUpgrades/ShipFOVUpgrade"]
+layout_mode = 0
+offset_top = 110.0
+offset_right = 150.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.45098, 0.458824, 1, 1)
+shortcut = SubResource("Shortcut_md62l")
+text = "Upgrade [9]"
+
+[node name="WeaponSlotsUpgrade" type="Panel" parent="ShipUpgrades"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 324.0
+offset_top = 76.0
+offset_right = 474.0
+offset_bottom = 226.0
+
+[node name="Description" type="Label" parent="ShipUpgrades/WeaponSlotsUpgrade"]
+layout_mode = 0
+offset_top = 10.0
+offset_right = 150.0
+offset_bottom = 70.0
+theme_override_font_sizes/font_size = 20
+text = "Weapon Slots
+100 Iron"
+horizontal_alignment = 1
+
+[node name="UpgradeAmount" type="ProgressBar" parent="ShipUpgrades/WeaponSlotsUpgrade"]
+layout_mode = 0
+offset_top = 75.0
+offset_right = 150.0
+offset_bottom = 110.0
+
+[node name="UpgradeWeaponSlots" type="Button" parent="ShipUpgrades/WeaponSlotsUpgrade"]
+layout_mode = 0
+offset_top = 110.0
+offset_right = 150.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.45098, 0.458824, 1, 1)
+shortcut = SubResource("Shortcut_8xqh4")
+text = "Upgrade [0]"
+
+[node name="ShipInventoryWeapons" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Inventory" type="Panel" parent="ShipInventoryWeapons"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -461.0
+offset_top = -60.0
+offset_right = -6.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="InventoryLabel" type="Label" parent="ShipInventoryWeapons/Inventory"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -20.0
+offset_bottom = -3.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 10
+text = "Ship Inventory"
+horizontal_alignment = 1
+
+[node name="Slot1" type="Panel" parent="ShipInventoryWeapons/Inventory"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 45.0
+
+[node name="Slot2" type="Panel" parent="ShipInventoryWeapons/Inventory"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 5.0
+offset_right = 90.0
+offset_bottom = 45.0
+
+[node name="Slot3" type="Panel" parent="ShipInventoryWeapons/Inventory"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 5.0
+offset_right = 135.0
+offset_bottom = 45.0
+
+[node name="Slot4" type="Panel" parent="ShipInventoryWeapons/Inventory"]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 5.0
+offset_right = 180.0
+offset_bottom = 45.0
+
+[node name="Slot5" type="Panel" parent="ShipInventoryWeapons/Inventory"]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 5.0
+offset_right = 225.0
+offset_bottom = 45.0
+
+[node name="Slot6" type="Panel" parent="ShipInventoryWeapons/Inventory"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 5.0
+offset_right = 270.0
+offset_bottom = 45.0
+
+[node name="Slot7" type="Panel" parent="ShipInventoryWeapons/Inventory"]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 5.0
+offset_right = 315.0
+offset_bottom = 45.0
+
+[node name="Slot8" type="Panel" parent="ShipInventoryWeapons/Inventory"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 5.0
+offset_right = 360.0
+offset_bottom = 45.0
+
+[node name="Slot9" type="Panel" parent="ShipInventoryWeapons/Inventory"]
+layout_mode = 0
+offset_left = 365.0
+offset_top = 5.0
+offset_right = 405.0
+offset_bottom = 45.0
+
+[node name="Slot10" type="Panel" parent="ShipInventoryWeapons/Inventory"]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 5.0
+offset_right = 450.0
+offset_bottom = 45.0
+
+[node name="Weapons" type="Panel" parent="ShipInventoryWeapons"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = -60.0
+offset_right = 461.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="WeaponsLabel" type="Label" parent="ShipInventoryWeapons/Weapons"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -20.0
+offset_bottom = -3.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 10
+text = "Ship Weapons"
+horizontal_alignment = 1
+
+[node name="Slot1" type="Panel" parent="ShipInventoryWeapons/Weapons"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 45.0
+offset_bottom = 45.0
+
+[node name="Slot2" type="Panel" parent="ShipInventoryWeapons/Weapons"]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 5.0
+offset_right = 90.0
+offset_bottom = 45.0
+
+[node name="Slot3" type="Panel" parent="ShipInventoryWeapons/Weapons"]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 5.0
+offset_right = 135.0
+offset_bottom = 45.0
+
+[node name="Slot4" type="Panel" parent="ShipInventoryWeapons/Weapons"]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 5.0
+offset_right = 180.0
+offset_bottom = 45.0
+
+[node name="Slot5" type="Panel" parent="ShipInventoryWeapons/Weapons"]
+layout_mode = 0
+offset_left = 185.0
+offset_top = 5.0
+offset_right = 225.0
+offset_bottom = 45.0
+
+[node name="Slot6" type="Panel" parent="ShipInventoryWeapons/Weapons"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 5.0
+offset_right = 270.0
+offset_bottom = 45.0
+
+[node name="Slot7" type="Panel" parent="ShipInventoryWeapons/Weapons"]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 5.0
+offset_right = 315.0
+offset_bottom = 45.0
+
+[node name="Slot8" type="Panel" parent="ShipInventoryWeapons/Weapons"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 5.0
+offset_right = 360.0
+offset_bottom = 45.0
+
+[node name="Slot9" type="Panel" parent="ShipInventoryWeapons/Weapons"]
+layout_mode = 0
+offset_left = 365.0
+offset_top = 5.0
+offset_right = 405.0
+offset_bottom = 45.0
+
+[node name="Slot10" type="Panel" parent="ShipInventoryWeapons/Weapons"]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 5.0
+offset_right = 450.0
+offset_bottom = 45.0
+
+[connection signal="button_down" from="HomePage/SingleplayerButton" to="." method="_on_singleplayer_button_button_down"]
+[connection signal="button_down" from="DeathScreen/RespawnButton" to="." method="_on_respawn_button_button_down"]
+[connection signal="button_down" from="DeathScreen/QuitButton" to="." method="_on_quit_button_button_down"]
+[connection signal="pressed" from="ShipHUD/Upgrades" to="." method="_on_upgrades_pressed"]
+[connection signal="pressed" from="ShipHUD/InventoryWeapons" to="." method="_on_inventory_weapons_pressed"]
+[connection signal="pressed" from="ShipUpgrades/ShieldCapUpgrade/UpgradeShieldCap" to="." method="_on_upgrade_shield_cap_pressed"]
+[connection signal="pressed" from="ShipUpgrades/ShieldRegUpgrade/UpgradeShieldReg" to="." method="_on_upgrade_shield_reg_pressed"]
+[connection signal="pressed" from="ShipUpgrades/BulletCapUpgrade/UpgradeBulletCap" to="." method="_on_upgrade_bullet_cap_pressed"]
+[connection signal="pressed" from="ShipUpgrades/BulletRegUpgrade/UpgradeBulletReg" to="." method="_on_upgrade_bullet_reg_pressed"]
+[connection signal="pressed" from="ShipUpgrades/BulletDmgUpgrade/UpgradeBulletDmg" to="." method="_on_upgrade_bullet_dmg_pressed"]
+[connection signal="pressed" from="ShipUpgrades/BulletSpeedUpgrade/UpgradeBulletSpeed" to="." method="_on_upgrade_bullet_speed_pressed"]
+[connection signal="pressed" from="ShipUpgrades/ShipSpeedUpgrade/UpgradeShipSpeed" to="." method="_on_upgrade_ship_speed_pressed"]
+[connection signal="pressed" from="ShipUpgrades/ShipAgilityUpgrade/UpgradeShipAgility" to="." method="_on_upgrade_ship_agility_pressed"]
+[connection signal="pressed" from="ShipUpgrades/ShipFOVUpgrade/UpgradeShipFOV" to="." method="_on_upgrade_ship_fov_pressed"]
+[connection signal="pressed" from="ShipUpgrades/WeaponSlotsUpgrade/UpgradeWeaponSlots" to="." method="_on_upgrade_weapon_slots_pressed"]

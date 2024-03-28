@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://dcc7pm13yo0wd"]
+
+[ext_resource type="Script" path="res://scripts/bullet.gd" id="1_jefmy"]
+[ext_resource type="PackedScene" uid="uid://bw20jhfk7sxa8" path="res://scenes/asteroid.tscn" id="2_kvcan"]
+[ext_resource type="Texture2D" uid="uid://ceb8l07e33wgp" path="res://sprites/bullet/explode_0.png" id="3_1f5d2"]
+[ext_resource type="Texture2D" uid="uid://7rodh30fewcm" path="res://sprites/bullet/alien_bullet_0.png" id="3_1ygry"]
+[ext_resource type="Texture2D" uid="uid://dtuv4ixdk8od0" path="res://sprites/bullet/ally_bullet_0.png" id="4_308sd"]
+[ext_resource type="Texture2D" uid="uid://qwsum6tjl5wm" path="res://sprites/bullet/explode_1.png" id="4_ftqk5"]
+[ext_resource type="Texture2D" uid="uid://v5w035o46bjb" path="res://sprites/bullet/explode_2.png" id="6_dylop"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ayhm0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1ygry")
+}],
+"loop": true,
+"name": &"alien_bullet",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_308sd")
+}],
+"loop": true,
+"name": &"ally_bullet",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_1f5d2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ftqk5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dylop")
+}],
+"loop": true,
+"name": &"explode",
+"speed": 15.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rhqvi"]
+height = 40.0
+
+[node name="Bullet" type="Area2D" groups=["bullets"]]
+scale = Vector2(2.5, 2.5)
+script = ExtResource("1_jefmy")
+asteroid_scene = ExtResource("2_kvcan")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_repeat = 1
+sprite_frames = SubResource("SpriteFrames_ayhm0")
+animation = &"ally_bullet"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_rhqvi")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

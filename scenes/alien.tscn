@@ -1,0 +1,216 @@
+[gd_scene load_steps=26 format=3 uid="uid://dv08vy1pvb5yv"]
+
+[ext_resource type="Script" path="res://scripts/alien.gd" id="1_8hlfh"]
+[ext_resource type="PackedScene" uid="uid://dcc7pm13yo0wd" path="res://scenes/bullet.tscn" id="2_i8rsd"]
+[ext_resource type="PackedScene" uid="uid://bu11hcwt4qdta" path="res://scenes/item.tscn" id="3_4o2ma"]
+[ext_resource type="Texture2D" uid="uid://df2ax6k7u00rb" path="res://sprites/alien/racer_1.png" id="4_agxxt"]
+[ext_resource type="Texture2D" uid="uid://chc0gwva41yrc" path="res://sprites/alien/explode_0.png" id="4_hwnw1"]
+[ext_resource type="Texture2D" uid="uid://badfmu8f8tp38" path="res://sprites/alien/explode_1.png" id="5_3g7h7"]
+[ext_resource type="Texture2D" uid="uid://2mrx00mf18lo" path="res://sprites/alien/racer_0.png" id="5_17yru"]
+[ext_resource type="Texture2D" uid="uid://dm4wjqfua0cxo" path="res://sprites/alien/explode_2.png" id="6_iqq63"]
+[ext_resource type="Texture2D" uid="uid://bshi0tc1wa5jp" path="res://sprites/alien/saucer_1.png" id="6_w4ewe"]
+[ext_resource type="Texture2D" uid="uid://d27d3ohk0vmta" path="res://sprites/alien/saucer_0.png" id="7_wuoow"]
+[ext_resource type="Texture2D" uid="uid://dkbdvqt558tms" path="res://sprites/alien/shooter_1.png" id="8_3o2e4"]
+[ext_resource type="Texture2D" uid="uid://canp2pqijuqqw" path="res://sprites/alien/shooter_0.png" id="9_84m4s"]
+[ext_resource type="Texture2D" uid="uid://vs2f83utoqj7" path="res://sprites/alien/spread_1.png" id="10_e201k"]
+[ext_resource type="Texture2D" uid="uid://drnt5nsatpkql" path="res://sprites/alien/spread_0.png" id="11_wa3vj"]
+[ext_resource type="Texture2D" uid="uid://c82nibppwm3ih" path="res://particles/explode.png" id="14_ivgdu"]
+[ext_resource type="Texture2D" uid="uid://c1l4e3wun25l7" path="res://sprites/shield/shield_bar/enemy_0.png" id="14_y7p4g"]
+[ext_resource type="Texture2D" uid="uid://cms4rdct6p3yt" path="res://sprites/shield/shield_bar_container/enemy_0.png" id="15_ssumt"]
+[ext_resource type="Texture2D" uid="uid://c6cavi28fh1h6" path="res://sprites/shield/shield_icon/enemy_0.png" id="16_fiukx"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_78wx4"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 500.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+scale_min = 0.1
+scale_max = 0.25
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7niio"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_hwnw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3g7h7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_iqq63")
+}],
+"loop": true,
+"name": &"explode",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_agxxt")
+}],
+"loop": true,
+"name": &"racer_angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_17yru")
+}],
+"loop": true,
+"name": &"racer_calm",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_w4ewe")
+}],
+"loop": true,
+"name": &"saucer_angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_wuoow")
+}],
+"loop": true,
+"name": &"saucer_calm",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_3o2e4")
+}],
+"loop": true,
+"name": &"shooter_angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_84m4s")
+}],
+"loop": true,
+"name": &"shooter_calm",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_e201k")
+}],
+"loop": true,
+"name": &"spread_angry",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_wa3vj")
+}],
+"loop": true,
+"name": &"spread_calm",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_idhuh"]
+radius = 64.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nfeyo"]
+radius = 750.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p38g2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_ssumt")
+}],
+"loop": true,
+"name": &"enemy",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yi85u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_y7p4g")
+}],
+"loop": true,
+"name": &"enemy",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gfljk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_fiukx")
+}],
+"loop": true,
+"name": &"enemy",
+"speed": 5.0
+}]
+
+[node name="Alien" type="Area2D" groups=["aliens"]]
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_8hlfh")
+bullet_scene = ExtResource("2_i8rsd")
+item_scene = ExtResource("3_4o2ma")
+
+[node name="ExplosionParticleEmitter" type="GPUParticles2D" parent="."]
+texture_filter = 3
+emitting = false
+amount = 100
+process_material = SubResource("ParticleProcessMaterial_78wx4")
+texture = ExtResource("14_ivgdu")
+explosiveness = 1.0
+randomness = 1.0
+fixed_fps = 60
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_repeat = 1
+sprite_frames = SubResource("SpriteFrames_7niio")
+animation = &"racer_angry"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_idhuh")
+
+[node name="FiringRange" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FiringRange"]
+shape = SubResource("CircleShape2D_nfeyo")
+
+[node name="Shield" type="Node2D" parent="."]
+rotation = 0.0039499
+
+[node name="ShieldBarContainer" type="AnimatedSprite2D" parent="Shield"]
+texture_filter = 3
+texture_repeat = 1
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_p38g2")
+animation = &"enemy"
+centered = false
+offset = Vector2(0, 200)
+
+[node name="ShieldBar" type="AnimatedSprite2D" parent="Shield"]
+texture_filter = 3
+texture_repeat = 1
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_yi85u")
+animation = &"enemy"
+centered = false
+offset = Vector2(0, 200)
+
+[node name="ShieldIcon" type="AnimatedSprite2D" parent="Shield"]
+texture_filter = 3
+texture_repeat = 1
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_gfljk")
+animation = &"enemy"
+centered = false
+offset = Vector2(-160, 340)
+
+[connection signal="area_entered" from="FiringRange" to="." method="_on_firing_range_area_entered"]
+[connection signal="area_exited" from="FiringRange" to="." method="_on_firing_range_area_exited"]
